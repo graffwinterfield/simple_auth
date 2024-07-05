@@ -14,7 +14,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="API documentation",
    ),
-   url=f'http://{settings.DOMAIN}/launcher/api/',
+   url=f'https://{settings.DOMAIN}/launcher/api/',
    public=True,
    permission_classes=([permissions.AllowAny]),
 )

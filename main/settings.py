@@ -24,7 +24,11 @@ SECRET_KEY = 'django-insecure-yvgtgz3ac_&fpre^l%7@*h2vqu!z(obxr-c9964r(wuk!n+ey7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DOMAIN = 'unvix.tech'
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'unvix.tech', 'www.unvix.tech', '45.143.94.75', ]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'unvix.tech', 'www.unvix.tech', '45.143.94.75']
+CSRF_TRUSTED_ORIGINS = [
+    f'https://{DOMAIN}',
+    'https://45.143.94.75/',
+]
 
 # Application definition
 
