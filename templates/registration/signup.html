@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unvix Sign Up</title>
+  </head>
+  <body>
+    <header class="header">
+          <a href="{% url 'login' %}" class="header__login-btn">Log in</a>
+          <select class="header__language-picker"
+            name="language-picker"
+            id="language-picker">
+            <option value="En">En</option>
+          </select>
+    </header>
+
+    <section class="signup">
+      <div class="signup__content">
+        <h1 class="signup__title">Sign up</h1>
+        <p class="signup__subtitle">
+          Please register to start using the platform
+        </p>
+        <form method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+         <div class="inputboxes">
+
+            <div class="inputbox">
+               {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li style="color:green">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+              {% for field in form %}
+                {{ field.label_tag }}
+                {{ field }}
+              <li style="color:yellow">{{ field.help_text }}</li>
+                {% for error in field.errors %}
+                    <span style="color: red">{{ error }}</span>
+                {% endfor %}
+                <br>
+            {% endfor %}
+            </div>
+                     <div class="inputbox">
+
+                 <label>Profile image</label>
+                        {{profile_form.profile_pic}}
+            </div>
+
+          <div class="checkbox">
+            <input type="checkbox" name="checkbox" id="checkbox" checked />
+            <label for="checkbox"
+              >I accept the <a href="#">Terms of use</a> and the
+              <a href="#">Privacy policy</a></label
+            >
+          </div>
+          <button type="submit" class="signup-btn">Sign up</button>
+         </div>
+        </form>
+        <p href="#" class="signup__login-link">
+          Already have an account? <a href="{% url 'login' %}">Log in</a>
+        </p>
+          <script src="//accounts.google.com/gsi/client" async></script>
+
+      </div>
+
+    </section>
+  </body>
+</html>
