@@ -14,7 +14,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="API documentation",
    ),
-   url=f'http://127.0.0.1:8000/api/',
+   url=f'http:/{settings.DOMAIN}/api/',
    public=True,
    permission_classes=([permissions.AllowAny]),
 )
